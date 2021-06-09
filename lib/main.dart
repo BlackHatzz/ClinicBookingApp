@@ -1,3 +1,4 @@
+import 'package:clinicbookingapp/views/map/map-page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:clinicbookingapp/views/global/main-tab-bar.dart';

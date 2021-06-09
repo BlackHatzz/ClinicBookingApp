@@ -34,22 +34,22 @@ class NextAppointmentCard extends StatelessWidget {
               children: <Widget>[
                 SvgPicture.asset(Constants.CALENDAR_ICON_REF, height: 30.0, width: 30.0,),
                 SizedBox(width: 10,),
-                Text("Your next appointment", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),),
+                Text("Cuộc hẹn kế tiếp", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),),
               ],
             ),
             SizedBox(height: 8,),
 
             // location of clinic
-            Text("\u2022 Location: 123 Nguyen Hue, Q. ABC - TP. HCM"),
+            Text("\u2022 Địa chỉ: 123 Nguyen Hue, Q. ABC - TP. HCM"),
             SizedBox(height: 8,),
             // time of the next appointment
-            Text("\u2022 Time: 15 Dec 2021"),
+            Text("\u2022 Thời gian: 15/12/2021"),
             SizedBox(height: 8,),
             // dentist info
-            Text("\u2022 Dentist: Nguyen Duc Huy"),
+            Text("\u2022 Bác sĩ: Nguyen Duc Huy"),
             SizedBox(height: 8,),
             // Nurse info
-            Text("\u2022 Nurse: Nguyen Duc Huy"),
+            Text("\u2022 Y tá: Nguyen Duc Huy"),
             SizedBox(height: 8,),
 
           ],

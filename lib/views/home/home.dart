@@ -1,5 +1,6 @@
 
 
+import 'package:clinicbookingapp/views/map/map-page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:clinicbookingapp/views/home/next-appointment-card.dart';
@@ -13,8 +14,8 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      appBar: SharedComponent.shared.buildAppBar("Home"),
-      body: buildBody(),
+      appBar: SharedComponent.shared.buildAppBar("Trang chủ"),
+      body: buildBody(context),
     );
   }
 
@@ -58,12 +59,12 @@ class Home extends StatelessWidget {
     return AppBar(
       elevation: 0,
       leading: IconButton(icon: SvgPicture.asset("assets/icons/tooth.svg"), onPressed: () {},),
-      title: Text("Home"),
+//      title: Text("Home"),
       centerTitle: true,
     );
   }
 
-  Widget _createNewsCard(String imageRef) {
+  Widget _createNewsCard(String imageRef, String title) {
     return Padding(
       padding: const EdgeInsets.only(left: 12.0, right: 12.0),
       child: Column(
@@ -79,13 +80,13 @@ class Home extends StatelessWidget {
             ),
           ),
           SizedBox(height: 10,),
-          Text("News title")
+          Text(title)
         ],
       ),
     );
   }
 
-  Container buildBody() {
+  Container buildBody(BuildContext context) {
     return Container(
       color: Colors.white,
       child: SingleChildScrollView(
@@ -95,7 +96,7 @@ class Home extends StatelessWidget {
             // 1
             Padding(
               child: Column(children: <Widget>[
-                Text("Fri, 21 May", style: TextStyle(color: Constants.PRIMARY_COLOR),),
+                Text("Thứ 6, ngày 21 tháng 5", style: TextStyle(color: Constants.PRIMARY_COLOR),),
                 SizedBox(height: 10,),
                 Text("Hello! Duc Huy", style: TextStyle(fontSize: 32),),
               ],
@@ -115,7 +116,7 @@ class Home extends StatelessWidget {
             SizedBox(height: 40,),
             Padding(
               padding: const EdgeInsets.only(left: 12.0),
-              child: Text("News", style: TextStyle(fontSize: 32),),
+              child: Text("Phòng khám gần đây", style: TextStyle(fontSize: 24),),
             ),
             SizedBox(height: 10,),
             //2
@@ -127,10 +128,10 @@ class Home extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 children: <Widget>[
 
-                  _createNewsCard(Constants.IMAGE_FOLDER_REF + "den.png"),
-                  _createNewsCard(Constants.IMAGE_FOLDER_REF + "braces.png"),
-                  _createNewsCard(Constants.IMAGE_FOLDER_REF + "den.png"),
-                  _createNewsCard(Constants.IMAGE_FOLDER_REF + "braces.png"),
+                  _createNewsCard(Constants.IMAGE_FOLDER_REF + "hop1.jpg", "phong kham A"),
+                  _createNewsCard(Constants.IMAGE_FOLDER_REF + "hop2.jpg", "phong kham B"),
+                  _createNewsCard(Constants.IMAGE_FOLDER_REF + "hop1.jpg", "phong kham C"),
+                  _createNewsCard(Constants.IMAGE_FOLDER_REF + "hop2.jpg", "phong kham D"),
 
                 ],
               ),
@@ -140,7 +141,7 @@ class Home extends StatelessWidget {
             SizedBox(height: 50,),
             Padding(
               padding: const EdgeInsets.only(left: 12.0),
-              child: Text("Discount", style: TextStyle(fontSize: 32),),
+              child: Text("Giảm giá", style: TextStyle(fontSize: 24),),
             ),
             SizedBox(height: 10,),
             //3
@@ -152,32 +153,14 @@ class Home extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 children: <Widget>[
 
-                  _createNewsCard(Constants.IMAGE_FOLDER_REF + "dis1.png"),
-                  _createNewsCard(Constants.IMAGE_FOLDER_REF + "dis2.png"),
-                  _createNewsCard(Constants.IMAGE_FOLDER_REF + "dis1.png"),
-                  _createNewsCard(Constants.IMAGE_FOLDER_REF + "dis2.png"),
+                  _createNewsCard(Constants.IMAGE_FOLDER_REF + "dis1.png", "Giam gia lan dau"),
+                  _createNewsCard(Constants.IMAGE_FOLDER_REF + "dis2.png", "Giam gia thu 2"),
+                  _createNewsCard(Constants.IMAGE_FOLDER_REF + "dis1.png", "giam gia"),
+                  _createNewsCard(Constants.IMAGE_FOLDER_REF + "dis2.png", "giam gia"),
 
                 ],
               ),
             ),
-
-            // 3
-            Image.asset(Constants.HOME_BACKGROUND),
-            SizedBox(height: 10,),
-            Center(child: Text("\"We bring your healthy smile\"", style: TextStyle(fontSize: 14, fontStyle: FontStyle.italic),)),
-
-            // 4
-//            Padding(
-//              padding: const EdgeInsets.only(left: 12, top: 24, right: 12),
-//              child: Column(children: <Widget>[
-//                Text("Your next appointments", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),),
-//
-//                InfoCard(),
-//                InfoCard(),
-//
-//
-//              ], crossAxisAlignment: CrossAxisAlignment.start,),
-//            ),
 
             // bottom box
             SizedBox(height: 80,),
